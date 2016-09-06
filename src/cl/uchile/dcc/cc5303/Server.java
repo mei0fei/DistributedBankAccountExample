@@ -1,4 +1,7 @@
-package cl.uchile.dcc.cc5303.entities;
+package cl.uchile.dcc.cc5303;
+
+import cl.uchile.dcc.cc5303.entities.Bank;
+import cl.uchile.dcc.cc5303.entities.IBank;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
