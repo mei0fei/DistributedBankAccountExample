@@ -8,7 +8,8 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 
 public class Server {
-    public static String URL_SERVER = "rmi://localhost:1099/bancoServer";
+
+    public static final String URL_SERVER = "rmi://localhost:1099/bancoServer";
 
     public static void main(String[] args) {
 
