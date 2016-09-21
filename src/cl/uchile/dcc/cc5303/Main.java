@@ -15,43 +15,52 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int optionSelected = 0;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Bienvenido al cajero automatico");
-        while (optionSelected != 4){
-            showCommands(System.out);
-            try {
-                optionSelected = Integer.parseInt(br.readLine());
-            }catch (IOException e) {
-                e.printStackTrace();
-            }catch (NumberFormatException e){
-                System.out.println("Sólo se admiten números");
-            }
-
-            switch (optionSelected){
-                case 1:
-                    System.out.println("Saldo");
-                    break;
-                case 2:
-                    System.out.println("Giro");
-                    break;
-                case 3:
-                    System.out.println("Deposito");
-                    break;
-                case 4:
-                    System.out.println("Salir");
-                    break;
-                default:
-                    System.out.println("Favor ingrese una opción válida");
-                    break;
-            }
-        }
-
-
-        /*
         try {
             IBank remoteBank = (IBank) Naming.lookup(Server.URL_SERVER);
+
+            int optionSelected = 0;
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            System.out.println("Bienvenido al cajero automatico");
+            while (optionSelected != 4){
+                showCommands(System.out);
+                try {
+                    optionSelected = Integer.parseInt(br.readLine());
+                }catch (IOException e) {
+                    e.printStackTrace();
+                }catch (NumberFormatException e){
+                    System.out.println("Sólo se admiten números");
+                }
+
+                switch (optionSelected){
+                    case 1:
+                        System.out.println("Saldo: " + remoteBank.getSaldo());
+                        break;
+                    case 2:
+                        System.out.println("Giro por: " + remoteBank.fastWithdrawal());
+                        break;
+                    case 3:
+                        int money = 0;
+                        try {
+                            money = Integer.parseInt(br.readLine());
+                        }catch (IOException e) {
+                            e.printStackTrace();
+                        }catch (NumberFormatException e){
+                            System.out.println("Sólo se admiten números");
+                        }
+                        remoteBank.saveMoney(money);
+                        System.out.println("Deposito por " + money);
+                        break;
+                    case 4:
+                        System.out.println("Salir");
+                        break;
+                    default:
+                        System.out.println("Favor ingrese una opción válida");
+                        break;
+                }
+            }
+
 
         } catch (NotBoundException e) {
             e.printStackTrace();
@@ -60,7 +69,7 @@ public class Main {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        */
+
     }
 
     public static void showCommands(PrintStream output){
