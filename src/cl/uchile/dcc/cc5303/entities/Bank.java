@@ -33,7 +33,7 @@ public class Bank extends UnicastRemoteObject implements IBank{
     public int fastWithdrawal() throws RemoteException {
         ++this.txNumber;
         this.money -= this.fixedFastWithdrawal;
-        notifyOperation("Giro rapido por " + this.txNumber);
+        notifyOperation("Giro rapido por " + this.fixedFastWithdrawal);
         return fixedFastWithdrawal;
     }
 

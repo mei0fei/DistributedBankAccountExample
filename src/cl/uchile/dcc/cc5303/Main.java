@@ -43,6 +43,7 @@ public class Main {
                     case 3:
                         int money = 0;
                         try {
+                            System.out.print("Especifique el monto a depositar: ");
                             money = Integer.parseInt(br.readLine());
                         }catch (IOException e) {
                             e.printStackTrace();
